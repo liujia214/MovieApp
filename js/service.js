@@ -58,7 +58,6 @@ angular.module('movieApp',[]).controller('movieController',function($scope,$http
         $scope.writers = focusedMovie.writers;
         $scope.stars_name = focusedMovie.stars_name;
         $scope.stars =  focusedMovie.stars;
-        console.log($scope.stars);
         //show first character's photo when page is initialized
         $scope.cast($scope.stars[0]);
     };

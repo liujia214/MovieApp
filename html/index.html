@@ -16,7 +16,7 @@
             <hr>
             <ul>
                 <li ng-repeat="movie in collection" ng-class="{focus:movie.isFocus}">
-                    <img ng-src="{{base_url}}/w92/{{movie.poster_path}}" class="img1"  ng-click="focus(movie,$event)">
+                    <img ng-src="{{base_url}}/w92/{{movie.poster_path}}" class="img1"  ng-click="focus(movie)">
                     <div class="title2">{{movie.original_title}}</div>
                     <div class="title3">{{movies[movie.id].director}}</div>
                 </li>
