@@ -1,0 +1,12 @@
+Movie App:
+
+
+HTML: html/index.html
+JS: js/service.js
+CSS: css/base.scss
+
+
+Layout consists of top, left and right.
+Used normalize.css to reset browser and Sass as processor.
+Used Angular controller and service to get movie information from external API, and ng-repeat directive to display data on page.
+For focus part, used ng-class directive to add and remove style dynamically.

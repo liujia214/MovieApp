@@ -1,0 +1,156 @@
+@mixin box-sizing($value){
+  -moz-box-sizing: $value;
+  -webkit-box-sizing: $value;
+  -ms-box-sizing:$value;
+  -o-box-sizing: $value;
+  box-sizing: $value;
+}
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+*{
+  @include box-sizing(border-box);
+}
+html,body{
+  margin:0;
+  font-family: Helvetica;
+}
+ul{
+  margin:0;
+  padding:0;
+  li{
+    list-style-type: none;
+  }
+}
+/*layout consists of top, left and right*/
+.top{
+  height: 60px;
+  background-color: black;
+}
+.left{
+  width: 33%;
+  overflow: auto;
+  background-color: #e2e2e2;
+  box-shadow: -5px 0px 10px #bbbbbb inset;
+  padding: 50px 20px 20px;
+  ul{
+    @extend .flex;
+    flex-wrap: wrap;
+    li{
+      text-align: center;
+      width: 50%;
+      padding-top: 40px;
+    }
+  }
+  hr{
+    margin:0 40px;
+  }
+}
+.right{
+  width: 66%;
+  padding: 50px 60px 20px;
+  hr{
+    margin: 0 0 30px;
+  }
+  .title1{
+    margin-left: 0;
+  }
+}
+
+/*There are 4 types of styles for text: title1, title2, title3 and title4*/
+.text1{
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.text2{
+  font-size: 14px;
+  color: #484949;
+}
+.title1{
+  @extend .text1;
+  font-size: 24px;
+  color: #1A9DBA;
+  margin-left: 40px;
+}
+.title2{
+  @extend .text1;
+  @extend .text2
+}
+.title3{
+  @extend .text2;
+  line-height: 18px;
+}
+.title4{
+  font-weight: bold;
+}
+
+/*There are 4 types of styles for image: img1, img2, img3, img4*/
+.img1{
+  width: 122px;
+  height: 122px;
+  @include border-radius(50%);
+  margin-bottom: 10px;
+}
+.img2{
+  width: 66px;
+  height: 66px;
+  @include border-radius(50%);
+  margin-right: 20px;
+}
+.img3{
+  width: 174px;
+  height: 262px;
+  margin-right: 30px;
+}
+.img4{
+  width: 347px;
+  height: 420px;
+}
+
+.img1:hover,.img2:hover{
+  cursor: pointer;
+}
+
+/*most layouts are displayed flex*/
+.flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.movieContent{
+  @extend .flex;
+  padding:0 20px 20px 0;
+  width: 100%;
+}
+.creditsContent{
+  @extend .flex;
+  justify-content: space-between;
+  padding:0 20px;
+}
+.creditsDetail{
+  @extend .flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+/*style for focused movie and character*/
+.focus{
+  .title2,.title3{
+    color: #1A9DBA;
+  }
+  .img1{
+    border: 9px solid #1A9DBA;
+  }
+  .img2{
+    border: 5px solid #1A9DBA;
+  }
+}
+
+
+
+

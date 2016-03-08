@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="movieApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="../css/base.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="../js/service.js"></script>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="flex" ng-controller="movieController">
+        <div class="left">
+            <div class="title1">browse movies</div>
+            <hr>
+            <ul>
+                <li ng-repeat="movie in collection" ng-class="{focus:movie.isFocus}">
+                    <img ng-src="{{base_url}}/w92/{{movie.poster_path}}" class="img1"  ng-click="focus(movie,$event)">
+                    <div class="title2">{{movie.original_title}}</div>
+                    <div class="title3">{{movies[movie.id].director}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="title1">stand by me</div>
+            <hr>
+            <div class="movieContent">
+                <div>
+                    <img ng-src="{{base_url}}/w185/{{movie_img}}" class="img3">
+                </div>
+                <div>
+                    <div class="title2">who made it?</div><br>
+                    <div class="title3"><span class="title4">Director: </span>
+                        {{director}}
+                    </div>
+                    <div class="title3"><span class="title4">Writers: </span>{{writers}}</div>
+                    <div class="title3"><span class="title4">Stars: </span>{{stars_name}}</div><br><br>
+                    <div class="title2">What's it about?</div><br>
+                    <div class="title3">{{overview}}</div>
+                </div>
+            </div>
+            <div class="title1">movie credits</div>
+            <hr>
+            <div class="creditsContent">
+                <ul>
+                    <li ng-repeat="star in stars | limitTo: 6" class="creditsDetail" ng-click="cast(star)"  ng-class="{focus:star.isFocus}">
+                        <img ng-src="{{base_url}}/w92/{{star.profile_path}}" class="img2">
+                        <div>
+                            <div class="title2">{{star.name}}</div>
+                            <div class="title3">{{star.character}}</div>
+                        </div>
+                    </li>
+                </ul>
+                <img ng-src="{{base_url}}/w780/{{cast_img}}" class="img4">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
